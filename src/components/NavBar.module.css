@@ -1,0 +1,20 @@
+.nav {
+  background-color: #f2f3f4;
+  padding: 20px;
+  /* padding-bottom: 0px; */
+}
+
+.navLink {
+  font-size: 16px;
+  line-height: 19px;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #031323;
+}
+.navLink:hover {
+  text-decoration: none;
+  color: #ab61e5;
+}
+.activeLink {
+  border-bottom: 3px solid #ab61e5;
+}
