@@ -32,11 +32,34 @@ export const getFeedbackQuestions = async employeeId => {
 
 const feedbackGiven = {};
 
-export const saveFeedback = async (employeeId, feedback) => {
+export const saveFeedback = async (employeeId, questions) => {
   return new Promise(resolve => {
     setTimeout(() => {
+      mockEmployeeList.find(emp => emp.id === employeeId).questions = questions;
       feedbackGiven[employeeId] = true;
       resolve(true);
+    }, 100);
+  });
+};
+
+export const getFeedback = async () => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const employeeFeedback = mockEmployeeList.map(employee => {
+        const hasFeedback = feedbackGiven[employee.id];
+        if (hasFeedback) {
+          return {
+            ...employee
+          };
+        } else {
+          return {
+            ...employee,
+            questions: mockFeedbackQuestions
+          };
+        }
+      });
+
+      resolve(employeeFeedback);
     }, 100);
   });
 };

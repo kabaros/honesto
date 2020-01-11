@@ -30,7 +30,7 @@ const NavBar = () => {
                 className={`${styles.navLink}`}
                 to="/view-feedback/given"
               >
-                My Feedback
+                Feedback Received
               </NavLink>
             </li>
             <li className="nav-item">
@@ -39,7 +39,7 @@ const NavBar = () => {
                 className={`${styles.navLink}`}
                 to="/view-feedback/received"
               >
-                Team Feedback
+                Feedback Given
               </NavLink>
             </li>
             <li className="nav-item">

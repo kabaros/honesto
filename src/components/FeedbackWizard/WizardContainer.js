@@ -49,7 +49,7 @@ const WizardContainer = props => {
   };
 
   const saveFeedback = async () => {
-    await api.saveFeedback(employeeId, questions);
+    await api.saveFeedback(Number(employeeId), questions);
     history.push("/confirmation");
   };
 

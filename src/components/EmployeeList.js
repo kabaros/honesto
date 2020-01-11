@@ -4,7 +4,7 @@ import styles from "./EmployeeList.module.css";
 import { useHistory } from "react-router-dom";
 
 const EmployeeList = props => {
-  const { showCompleted = true } = props;
+  const { showCompleted = true, employeesList } = props;
   const [employees, setEmployees] = useState([]);
   const history = useHistory();
 

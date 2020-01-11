@@ -36,7 +36,7 @@ function App() {
           </div>
         </div>
         <div className="alert alert-success mt-5 text-center" role="alert">
-          Time spent so far: 7.5h
+          Time spent so far: 9.5h
         </div>
       </div>
     </Router>
