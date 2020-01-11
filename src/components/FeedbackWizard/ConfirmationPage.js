@@ -1,4 +1,5 @@
 import React from "react";
+import EmployeeList from "../EmployeeList";
 
 const ConfirmationPage = () => {
   return (
@@ -7,6 +8,7 @@ const ConfirmationPage = () => {
       <p className="text-muted">
         Continue to give feedback to other team members.
       </p>
+      <EmployeeList showCompleted={false} />
     </div>
   );
 };

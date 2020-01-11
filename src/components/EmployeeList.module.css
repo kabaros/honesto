@@ -23,11 +23,20 @@
   padding-top: 15px;
 }
 .button {
-  background: #ab61e5;
   border-radius: 4px;
   width: 150px;
   height: 48px;
+  border-width: 0px;
+}
+.btnGiveFeedback {
+  background: #ab61e5;
   color: white;
+}
+
+.btnViewFeedback:hover {
+  background-color: #165f27;
+  /* background: #ab61e5;
+  color: white; */
 }
 .button:hover {
   color: white;

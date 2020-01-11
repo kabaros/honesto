@@ -19,7 +19,7 @@ function App() {
                 <Route exact path="/">
                   <ShareFeedback />
                 </Route>
-                <Route path="/view-feedback/:mode">
+                <Route path="/view-feedback/:mode/:employeeId?">
                   <ViewFeedback />
                 </Route>
                 <Route path="/confirmation">
@@ -36,7 +36,7 @@ function App() {
           </div>
         </div>
         <div className="alert alert-success mt-5 text-center" role="alert">
-          Time spent so far: 6.5h
+          Time spent so far: 7.5h
         </div>
       </div>
     </Router>

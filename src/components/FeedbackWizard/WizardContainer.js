@@ -3,11 +3,13 @@ import * as api from "../../services/api";
 import RadioQuestion from "./RadioQuestion";
 import TextQuestion from "./TextQuestion";
 import styles from "./WizardContainer.module.css";
-import { withRouter } from "react-router-dom";
+import { useHistory, useRouteMatch } from "react-router-dom";
+
 const WizardContainer = props => {
   const {
     params: { employeeId }
-  } = props.match;
+  } = useRouteMatch();
+  const history = useHistory();
 
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -28,7 +30,6 @@ const WizardContainer = props => {
 
   const currentQuestion = questions[currentQuestionIndex];
   const { type, title } = currentQuestion;
-  const QuestionCard = type === "radio" ? RadioQuestion : TextQuestion;
 
   const isFirstQuestion = currentQuestionIndex === 0;
 
@@ -49,13 +50,14 @@ const WizardContainer = props => {
 
   const saveFeedback = async () => {
     await api.saveFeedback(employeeId, questions);
-    props.history.push("/confirmation");
+    history.push("/confirmation");
   };
 
+  const QuestionCard = type === "radio" ? RadioQuestion : TextQuestion;
   return (
     <div>
       {questions && (
-        <div>
+        <div className={styles.questionWrapper}>
           <div className={styles.questionHeader}>
             <div className="float-right">
               <img
@@ -99,4 +101,4 @@ const WizardContainer = props => {
   );
 };
 
-export default withRouter(WizardContainer);
+export default WizardContainer;
