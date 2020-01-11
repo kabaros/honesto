@@ -6,17 +6,21 @@ import FeedbackDisplay from "./FeedbackDisplay";
 
 const ShareFeedback = props => {
   let { mode, employeeId } = useParams();
-  const title = mode === "received" ? "Team Feeback" : "My Feedback";
   const [employees, setEmployees] = useState([]);
   const [feedbackToShow, setFeedbackToShow] = useState([]);
 
-  useEffect(() => {
-    async function fetchFeedback() {
-      const employees = await api.getFeedback(mode);
-      setEmployees(employees);
-    }
-    fetchFeedback();
-  }, []);
+  const title = mode === "received" ? "Team Feeback" : "My Feedback";
+
+  useEffect(
+    mode => {
+      async function fetchFeedback() {
+        const employees = await api.getFeedback(mode);
+        setEmployees(employees);
+      }
+      fetchFeedback();
+    },
+    [mode]
+  );
 
   const selectEmployee = employee => {
     const { id } = employee;
@@ -33,12 +37,20 @@ const ShareFeedback = props => {
             <div className="col-12 col-lg-4 px-0">
               <div className="card rounded-0">
                 <ul className="list-group list-group-flush">
-                  <li class="list-group-item disabled" aria-disabled="true">
+                  <li className="list-group-item disabled" aria-disabled="true">
                     Feedback {mode}
                   </li>
-                  {employees.map(employee => {
+                  {employees.length == 0 && (
+                    <li
+                      className={`list-group-item ${employeeListStyles.listRow}`}
+                    >
+                      No feedback {mode} yet.
+                    </li>
+                  )}
+                  {employees.map((employee, index) => {
                     return (
                       <li
+                        key={index}
                         onClick={() => selectEmployee(employee)}
                         className={`list-group-item ${employeeListStyles.listRow}`}
                       >
@@ -59,7 +71,9 @@ const ShareFeedback = props => {
               </div>
             </div>
             <div className="col-12 col-lg-8 px-0">
-              <FeedbackDisplay feedback={feedbackToShow} />
+              {!!employees.length && (
+                <FeedbackDisplay feedback={feedbackToShow} />
+              )}
             </div>
           </div>
         </div>

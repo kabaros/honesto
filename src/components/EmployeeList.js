@@ -27,11 +27,11 @@ const EmployeeList = props => {
     <div>
       <div className="card">
         <ul className="list-group list-group-flush">
-          {employees.map(employee => {
+          {employees.map((employee, index) => {
             const { feedbackGiven = false } = employee;
             if (!showCompleted && feedbackGiven) return null;
             return (
-              <li className={`list-group-item ${styles.listRow}`}>
+              <li key={index} className={`list-group-item ${styles.listRow}`}>
                 <div className={styles.imageContainer}>
                   <img
                     src={employee.image}

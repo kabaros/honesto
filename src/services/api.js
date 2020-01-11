@@ -45,18 +45,8 @@ export const saveFeedback = async (employeeId, questions) => {
 export const getFeedback = async () => {
   return new Promise(resolve => {
     setTimeout(() => {
-      const employeeFeedback = mockEmployeeList.map(employee => {
-        const hasFeedback = feedbackGiven[employee.id];
-        if (hasFeedback) {
-          return {
-            ...employee
-          };
-        } else {
-          return {
-            ...employee,
-            questions: mockFeedbackQuestions
-          };
-        }
+      const employeeFeedback = mockEmployeeList.filter(employee => {
+        return feedbackGiven[employee.id];
       });
 
       resolve(employeeFeedback);

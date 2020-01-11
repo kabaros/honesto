@@ -20,11 +20,11 @@ const FeedbackDisplay = props => {
         <li className="list-group-item">
           <h2>{name}</h2>
         </li>
-        {questions.map(question => {
+        {questions.map((question, index) => {
           const AnswerComponent =
             question.type === "radio" ? RadioAnswer : TextAnswer;
           return (
-            <li className={`list-group-item`}>
+            <li key={index} className={`list-group-item`}>
               {question.title}
               <AnswerComponent answer={question.answer} />
             </li>

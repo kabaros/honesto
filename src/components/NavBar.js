@@ -37,7 +37,7 @@ const NavBar = () => {
               <NavLink
                 activeClassName={styles.activeLink}
                 className={`${styles.navLink}`}
-                to="/view-feedback/received"
+                to="/view-feedback404/received"
               >
                 Feedback Received
               </NavLink>

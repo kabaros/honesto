@@ -1,0 +1,15 @@
+.outerBar {
+  width: 100%;
+  height: 12px;
+  background-color: #f2f3f4;
+  position: relative;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.innerBar {
+  position: absolute;
+  background-color: #1ddebb;
+  height: 12px;
+  border-radius: 5px;
+}

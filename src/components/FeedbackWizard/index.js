@@ -4,6 +4,7 @@ import RadioQuestion from "./RadioQuestion";
 import TextQuestion from "./TextQuestion";
 import styles from "./WizardContainer.module.css";
 import { useHistory, useRouteMatch } from "react-router-dom";
+import WizardProgress from "./WizardProgress";
 
 const WizardContainer = props => {
   const {
@@ -81,22 +82,28 @@ const WizardContainer = props => {
         </div>
       )}
 
-      <button
-        type="button"
-        disabled={isFirstQuestion}
-        onClick={() => setCurrentQuestionIndex(currentQuestionIndex - 1)}
-        className="btn btn-outline-secondary btn-lg float-left"
-      >
-        Previous
-      </button>
+      <div className={styles.navigationContainer}>
+        <button
+          type="button"
+          disabled={isFirstQuestion}
+          onClick={() => setCurrentQuestionIndex(currentQuestionIndex - 1)}
+          className="btn btn-outline-secondary btn-lg"
+        >
+          Previous
+        </button>
 
-      <button
-        type="button"
-        onClick={goNextQuestion}
-        className="btn btn-outline-secondary btn-lg float-right"
-      >
-        Next
-      </button>
+        <button
+          type="button"
+          onClick={goNextQuestion}
+          className="btn btn-outline-secondary btn-lg float-right"
+        >
+          Next
+        </button>
+      </div>
+      <WizardProgress
+        total={questions.length}
+        current={currentQuestionIndex + 1}
+      />
     </div>
   );
 };
