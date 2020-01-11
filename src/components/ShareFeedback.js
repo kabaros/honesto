@@ -1,10 +1,10 @@
 import React from "react";
-import WizardContainer from "./FeedbackWizard/WizardContainer";
+import EmployeeList from "./EmployeeList";
 
 const ShareFeedback = () => {
   return (
     <div>
-      <WizardContainer />
+      <EmployeeList />
     </div>
   );
 };

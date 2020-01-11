@@ -1,0 +1,35 @@
+.listRow {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.employeeImage {
+  width: 58px;
+  height: auto;
+  border-radius: 50px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+.imageContainer {
+  display: flex;
+  align-items: center;
+}
+.employeeName {
+  font-size: 22px;
+  line-height: 26px;
+  color: #59636e;
+  padding-top: 15px;
+}
+.button {
+  background: #ab61e5;
+  border-radius: 4px;
+  width: 150px;
+  height: 48px;
+  color: white;
+}
+.button:hover {
+  color: white;
+  background-color: #653a86; /* todo: confirm hover color with design*/
+}

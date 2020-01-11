@@ -5,6 +5,7 @@ import ShareFeedback from "./ShareFeedback";
 import ViewFeedback from "./ViewFeedback";
 import ConfirmationPage from "./FeedbackWizard/ConfirmationPage";
 import NoMatch from "./404page";
+import WizardContainer from "./FeedbackWizard/WizardContainer";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
                 <Route path="/confirmation">
                   <ConfirmationPage />
                 </Route>
+                <Route path="/share-feedback/employee/:employeeId">
+                  <WizardContainer />
+                </Route>
                 <Route path="*">
                   <NoMatch />
                 </Route>
@@ -32,7 +36,7 @@ function App() {
           </div>
         </div>
         <div className="alert alert-success mt-5 text-center" role="alert">
-          Time spent so far: 3h
+          Time spent so far: 6.5h
         </div>
       </div>
     </Router>

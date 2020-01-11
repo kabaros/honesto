@@ -1,7 +1,7 @@
 import React from "react";
 
 const QuestionCard = props => {
-  const { question, recordAnswer, selectedAnswer } = props;
+  const { recordAnswer, selectedAnswer } = props;
   return (
     <div>
       <div className="form-group">

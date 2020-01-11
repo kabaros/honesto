@@ -5,15 +5,17 @@ import TextQuestion from "./TextQuestion";
 import styles from "./WizardContainer.module.css";
 import { withRouter } from "react-router-dom";
 const WizardContainer = props => {
-  const { employeeId } = props; // ToDo: Get this from URL params
+  const {
+    params: { employeeId }
+  } = props.match;
+
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [employeeInfo, setEmployeeInfo] = useState({});
-  const [isConfirmationStep, showConfirmationPage] = useState(false);
 
   useEffect(() => {
     async function fetchQuestions() {
-      const feedbackForm = await api.getFeedbackQuestions(employeeId);
+      const feedbackForm = await api.getFeedbackQuestions(Number(employeeId));
       const { questions, employeeInfo } = feedbackForm;
 
       setQuestions(questions);
@@ -57,7 +59,7 @@ const WizardContainer = props => {
           <div className={styles.questionHeader}>
             <div className="float-right">
               <img
-                src="/images/01.png"
+                src={employeeInfo.image}
                 className={styles.employeeImage}
                 alt={employeeInfo.name}
               />
