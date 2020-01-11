@@ -1,0 +1,12 @@
+.optionsList {
+  list-style: none;
+  list-style-type: none;
+  padding: 0;
+}
+
+.optionsItem {
+  background: #f2f3f4;
+  min-height: 100px;
+  margin-bottom: 10px;
+  padding: 20px;
+}

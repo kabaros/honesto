@@ -12,7 +12,7 @@ function App() {
         <NavBar />
         <div className="container">
           <div className="row">
-            <div className="col-lg-12 text-center ">
+            <div className="col-lg-12">
               <Switch>
                 <Route exact path="/">
                   <ShareFeedback />
@@ -27,11 +27,9 @@ function App() {
             </div>
           </div>
         </div>
-        <footer className="bg-dark navbar-dark fixed-bottom ">
-          <p className="muted text-right text-light p-2">
-            Time spent so far: 1h
-          </p>
-        </footer>
+        <div className="alert alert-success mt-5 text-center" role="alert">
+          Time spent so far: 3h
+        </div>
       </div>
     </Router>
   );

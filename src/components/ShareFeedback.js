@@ -1,10 +1,10 @@
 import React from "react";
+import WizardContainer from "./FeedbackWizard/WizardContainer";
 
 const ShareFeedback = () => {
   return (
     <div>
-      <h1>Share Feedback</h1>
-      <h2>Users list</h2>
+      <WizardContainer />
     </div>
   );
 };
