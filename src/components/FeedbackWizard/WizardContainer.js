@@ -3,12 +3,13 @@ import * as api from "../../services/api";
 import RadioQuestion from "./RadioQuestion";
 import TextQuestion from "./TextQuestion";
 import styles from "./WizardContainer.module.css";
-
+import { withRouter } from "react-router-dom";
 const WizardContainer = props => {
   const { employeeId } = props; // ToDo: Get this from URL params
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [employeeInfo, setEmployeeInfo] = useState({});
+  const [isConfirmationStep, showConfirmationPage] = useState(false);
 
   useEffect(() => {
     async function fetchQuestions() {
@@ -28,7 +29,6 @@ const WizardContainer = props => {
   const QuestionCard = type === "radio" ? RadioQuestion : TextQuestion;
 
   const isFirstQuestion = currentQuestionIndex === 0;
-  const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
   const recordAnswer = question => answer => {
     const updatedQuestions = [...questions];
@@ -36,8 +36,22 @@ const WizardContainer = props => {
     setQuestions(updatedQuestions);
   };
 
+  const goNextQuestion = () => {
+    const isLastQuestion = currentQuestionIndex === questions.length - 1;
+    if (!isLastQuestion) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      saveFeedback();
+    }
+  };
+
+  const saveFeedback = async () => {
+    await api.saveFeedback(employeeId, questions);
+    props.history.push("/confirmation");
+  };
+
   return (
-    <div className={styles.pageContainer}>
+    <div>
       {questions && (
         <div>
           <div className={styles.questionHeader}>
@@ -74,8 +88,7 @@ const WizardContainer = props => {
 
       <button
         type="button"
-        disabled={isLastQuestion}
-        onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
+        onClick={goNextQuestion}
         className="btn btn-outline-secondary btn-lg float-right"
       >
         Next
@@ -84,4 +97,4 @@ const WizardContainer = props => {
   );
 };
 
-export default WizardContainer;
+export default withRouter(WizardContainer);

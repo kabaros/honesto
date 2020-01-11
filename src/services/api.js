@@ -25,7 +25,12 @@ const mockFeedbackQuestions = {
     {
       questionId: 2,
       title: "How well did did you behave?",
-      type: "text",
+      type: "text"
+    },
+    {
+      questionId: 3,
+      title: "Another question with options?",
+      type: "radio",
       options: [
         {
           text: "Bad"
@@ -37,6 +42,16 @@ const mockFeedbackQuestions = {
           text: "Great"
         }
       ]
+    },
+    {
+      questionId: 4,
+      title: "Some question with text?",
+      type: "text"
+    },
+    {
+      questionId: 5,
+      title: "Some other question with text?",
+      type: "text"
     }
   ]
 };
@@ -45,6 +60,14 @@ export const getFeedbackQuestions = async feedbackId => {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(mockFeedbackQuestions);
+    }, 1000);
+  });
+};
+
+export const saveFeedback = async (employeeId, feedback) => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(true);
     }, 1000);
   });
 };

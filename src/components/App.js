@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import ShareFeedback from "./ShareFeedback";
 import ViewFeedback from "./ViewFeedback";
+import ConfirmationPage from "./FeedbackWizard/ConfirmationPage";
 import NoMatch from "./404page";
 
 function App() {
@@ -12,13 +13,16 @@ function App() {
         <NavBar />
         <div className="container">
           <div className="row">
-            <div className="col-lg-12">
+            <div className="col-lg-12 pt-5">
               <Switch>
                 <Route exact path="/">
                   <ShareFeedback />
                 </Route>
                 <Route path="/view-feedback/:mode">
                   <ViewFeedback />
+                </Route>
+                <Route path="/confirmation">
+                  <ConfirmationPage />
                 </Route>
                 <Route path="*">
                   <NoMatch />
