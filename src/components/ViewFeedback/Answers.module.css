@@ -1,0 +1,21 @@
+.blocks {
+  display: flex;
+}
+
+.block {
+  height: 20px;
+  background-color: #f2f3f4;
+  flex-grow: 1;
+  margin: 5px;
+  height: 28px;
+}
+
+.bad {
+  background-color: #de521d;
+}
+.medium {
+  background-color: #ff8c21;
+}
+.good {
+  background-color: #2bbf6a;
+}

@@ -5,7 +5,7 @@ import ShareFeedback from "./ShareFeedback";
 import ViewFeedback from "./ViewFeedback";
 import ConfirmationPage from "./FeedbackWizard/ConfirmationPage";
 import NoMatch from "./404page";
-import WizardContainer from "./FeedbackWizard/WizardContainer";
+import WizardContainer from "./FeedbackWizard";
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
           </div>
         </div>
         <div className="alert alert-success mt-5 text-center" role="alert">
-          Time spent so far: 9.5h
+          Time spent so far: 11.5h
         </div>
       </div>
     </Router>
