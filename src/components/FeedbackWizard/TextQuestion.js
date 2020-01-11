@@ -5,7 +5,7 @@ const QuestionCard = props => {
   return (
     <div>
       <div className="form-group">
-        <textarea class="form-control" rows="6"></textarea>
+        <textarea className="form-control" rows="6"></textarea>
       </div>
     </div>
   );

@@ -9,4 +9,9 @@
   min-height: 100px;
   margin-bottom: 10px;
   padding: 20px;
+  cursor: pointer;
+}
+.selectedOption {
+  background: #59636e;
+  color: #ffffff;
 }

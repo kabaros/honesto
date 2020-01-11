@@ -8,6 +8,7 @@ const WizardContainer = props => {
   const { employeeId } = props; // ToDo: Get this from URL params
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState();
   const [employeeInfo, setEmployeeInfo] = useState({});
 
   useEffect(() => {
@@ -30,6 +31,12 @@ const WizardContainer = props => {
   const isFirstQuestion = currentQuestionIndex === 0;
   const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
+  const recordAnswer = question => answer => {
+    questions[currentQuestionIndex].answer = answer;
+    setSelectedAnswer(answer);
+    setQuestions(questions);
+  };
+
   return (
     <div className={styles.pageContainer}>
       {questions && (
@@ -48,7 +55,11 @@ const WizardContainer = props => {
             </p>
           </div>
           <div className={styles.questionCardWrapper}>
-            <QuestionCard question={currentQuestion} />
+            <QuestionCard
+              recordAnswer={recordAnswer(currentQuestion)}
+              selectedAnswer={selectedAnswer}
+              question={currentQuestion}
+            />
           </div>
         </div>
       )}
