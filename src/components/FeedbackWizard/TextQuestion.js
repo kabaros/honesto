@@ -1,11 +1,16 @@
 import React from "react";
 
 const QuestionCard = props => {
-  const { question } = props;
+  const { question, recordAnswer, selectedAnswer } = props;
   return (
     <div>
       <div className="form-group">
-        <textarea className="form-control" rows="6"></textarea>
+        <textarea
+          value={selectedAnswer}
+          onChange={ev => recordAnswer(ev.target.value)}
+          className="form-control"
+          rows="6"
+        ></textarea>
       </div>
     </div>
   );

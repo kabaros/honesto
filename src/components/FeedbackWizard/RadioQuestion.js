@@ -3,16 +3,15 @@ import styles from "./RadioQuestion.module.css";
 
 const QuestionCard = props => {
   const { question, recordAnswer, selectedAnswer } = props;
-  const { title, options = [] } = question;
+  const { options = [] } = question;
 
-  console.log("ss");
   return (
     <div>
       <ul className={styles.optionsList}>
         {options.map(({ text }, index) => {
           return (
             <li
-              key={index} // todo: this is not good, but don't have real ids
+              key={index} // todo: get rid of index as id
               onClick={() => recordAnswer(index)}
               className={`${styles.optionsItem} ${
                 index === selectedAnswer ? styles.selectedOption : ""
