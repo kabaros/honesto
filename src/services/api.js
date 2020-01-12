@@ -1,5 +1,6 @@
 import mockEmployeeList from "./mocks/employees";
 import mockFeedbackQuestions from "./mocks/feedbackQuestions";
+import mockReceivedFeedback from "./mocks/feedbackReceived";
 
 export const getEmployeesForFeedback = () => {
   return new Promise(resolve => {
@@ -42,14 +43,17 @@ export const saveFeedback = async (employeeId, questions) => {
   });
 };
 
-export const getFeedback = async () => {
+export const getFeedback = async mode => {
   return new Promise(resolve => {
     setTimeout(() => {
-      const employeeFeedback = mockEmployeeList.filter(employee => {
-        return feedbackGiven[employee.id];
-      });
-
-      resolve(employeeFeedback);
+      if (mode === "received") {
+        resolve(mockReceivedFeedback);
+      } else {
+        const employeeFeedback = mockEmployeeList.filter(employee => {
+          return feedbackGiven[employee.id];
+        });
+        resolve(employeeFeedback);
+      }
     }, 100);
   });
 };

@@ -10,17 +10,13 @@ const ShareFeedback = props => {
   const [feedbackToShow, setFeedbackToShow] = useState([]);
 
   const title = mode === "received" ? "Team Feeback" : "My Feedback";
-
-  useEffect(
-    mode => {
-      async function fetchFeedback() {
-        const employees = await api.getFeedback(mode);
-        setEmployees(employees);
-      }
-      fetchFeedback();
-    },
-    [mode]
-  );
+  useEffect(() => {
+    async function fetchFeedback(mode) {
+      const employees = await api.getFeedback(mode);
+      setEmployees(employees);
+    }
+    fetchFeedback(mode);
+  }, [mode]);
 
   const selectEmployee = employee => {
     const { id } = employee;

@@ -37,7 +37,7 @@ const NavBar = () => {
               <NavLink
                 activeClassName={styles.activeLink}
                 className={`${styles.navLink}`}
-                to="/view-feedback404/received"
+                to="/view-feedback/received"
               >
                 Feedback Received
               </NavLink>
@@ -54,22 +54,6 @@ const NavBar = () => {
           </ul>
         </div>
       </div>
-      {/* <nav>
-      <ul>
-        <li>
-          <Link to="/">Share Feedback</Link>
-        </li>
-        <li>
-          <Link to="/view-feedback/given">My Feedback</Link>
-        </li>
-        <li>
-          <Link to="/view-feedback/received">Team Feedback</Link>
-        </li>
-        <li>
-          <Link to="/teams">Teams</Link>
-        </li>
-      </ul>
-    </nav>*/}
     </nav>
   );
 };
