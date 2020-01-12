@@ -7,6 +7,12 @@
 .withPointerCursor {
   cursor: pointer;
 }
+.selectedRow {
+  background: #f2f3f4;
+}
+.listRow:hover {
+  background: #fbf7fe;
+}
 .employeeImage {
   width: 58px;
   height: auto;

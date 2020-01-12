@@ -1,32 +1,50 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import * as api from "../../services/api";
 import employeeListStyles from "../EmployeeList.module.css";
 import FeedbackDisplay from "./FeedbackDisplay";
 
+const isFeedbackReceivd = mode => mode === "received";
+
 const ShareFeedback = props => {
-  let { mode, employeeId } = useParams();
+  const { mode, employeeId } = useParams();
+  const history = useHistory();
   const [employees, setEmployees] = useState([]);
   const [feedbackToShow, setFeedbackToShow] = useState([]);
 
-  const title = mode === "received" ? "Team Feeback" : "My Feedback";
+  const title = isFeedbackReceivd(mode) ? "Team Feeback" : "My Feedback";
+
   useEffect(() => {
     async function fetchFeedback(mode) {
-      const operation =
-        mode === "received" ? api.getReceivedFeedback : api.getGivenFeedback;
+      const operation = isFeedbackReceivd(mode)
+        ? api.getReceivedFeedback
+        : api.getGivenFeedback;
       const employees = await operation(mode);
       setEmployees(employees);
-      setFeedbackToShow([]);
     }
     fetchFeedback(mode);
   }, [mode]);
 
-  const selectEmployee = employee => {
-    const { id } = employee;
-    const feedback = employees.find(employee => employee.id === id);
+  useEffect(
+    employeeId => {
+      selectEmployee(employeeId);
+    },
+    [employeeId, employees]
+  );
+
+  const selectEmployee = (id = employeeId) => {
+    const feedback =
+      employees.find(employee => employee.id === Number(id)) || employees[0];
     setFeedbackToShow(feedback);
   };
 
+  const getSelectedStyle = id => {
+    return id === Number(employeeId) ? employeeListStyles.selectedRow : "";
+  };
+
+  const goToEmployee = id => {
+    history.push(`/view-feedback/${mode}/${id}`);
+  };
   return (
     <div>
       <h1>{title}</h1>
@@ -50,8 +68,12 @@ const ShareFeedback = props => {
                     return (
                       <li
                         key={index}
-                        onClick={() => selectEmployee(employee)}
-                        className={`list-group-item ${employeeListStyles.listRow} ${employeeListStyles.withPointerCursor}`}
+                        onClick={() => goToEmployee(employee.id)}
+                        className={`list-group-item ${
+                          employeeListStyles.listRow
+                        } ${
+                          employeeListStyles.withPointerCursor
+                        } ${getSelectedStyle(employee.id)}`}
                       >
                         <div className={employeeListStyles.imageContainer}>
                           <img
