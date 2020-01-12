@@ -26,13 +26,13 @@ const employees = [
       },
       {
         questionId: 2,
-        title: "How well did did you behave?",
+        title: "How well did I behave?",
         type: "text",
         answer: "he's ok most of the times"
       },
       {
         questionId: 4,
-        title: "Some question with text?",
+        title: "Am I humble?",
         type: "text"
       }
     ]
@@ -69,7 +69,7 @@ const employees = [
       },
       {
         questionId: 3,
-        title: "Another question with options?",
+        title: "Do I display ownership?",
         type: "radio",
         answer: 1,
         options: [
@@ -86,7 +86,7 @@ const employees = [
       },
       {
         questionId: 4,
-        title: "Do they show humility in their work?",
+        title: "Do I show humility in their work?",
         type: "text",
         answer: "sometimes they come out as a bit of ..."
       },

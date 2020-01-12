@@ -12,8 +12,11 @@ const ShareFeedback = props => {
   const title = mode === "received" ? "Team Feeback" : "My Feedback";
   useEffect(() => {
     async function fetchFeedback(mode) {
-      const employees = await api.getFeedback(mode);
+      const operation =
+        mode === "received" ? api.getReceivedFeedback : api.getGivenFeedback;
+      const employees = await operation(mode);
       setEmployees(employees);
+      setFeedbackToShow([]);
     }
     fetchFeedback(mode);
   }, [mode]);
@@ -48,7 +51,7 @@ const ShareFeedback = props => {
                       <li
                         key={index}
                         onClick={() => selectEmployee(employee)}
-                        className={`list-group-item ${employeeListStyles.listRow}`}
+                        className={`list-group-item ${employeeListStyles.listRow} ${employeeListStyles.withPointerCursor}`}
                       >
                         <div className={employeeListStyles.imageContainer}>
                           <img

@@ -6,8 +6,7 @@ export const getEmployeesForFeedback = () => {
   return new Promise(resolve => {
     const employees = mockEmployeeList.map(employee => {
       return {
-        ...employee,
-        feedbackGiven: !!feedbackGiven[employee.id]
+        ...employee
       };
     });
     setTimeout(() => {
@@ -21,39 +20,41 @@ export const getFeedbackQuestions = async employeeId => {
       const employeeInfo = mockEmployeeList.find(
         employee => employee.id === employeeId
       );
-      employeeInfo.feedbackGiven = !!feedbackGiven[employeeId];
-
       resolve({
         employeeInfo,
-        questions: mockFeedbackQuestions
+        // ToDo: this works for this exercise, but in real life would probably use _.deepClone
+        questions: JSON.parse(JSON.stringify(mockFeedbackQuestions))
       });
     }, 300);
   });
 };
 
-const feedbackGiven = {};
-
 export const saveFeedback = async (employeeId, questions) => {
   return new Promise(resolve => {
     setTimeout(() => {
-      mockEmployeeList.find(emp => emp.id === employeeId).questions = questions;
-      feedbackGiven[employeeId] = true;
+      const employee = mockEmployeeList.find(emp => emp.id === employeeId);
+      employee.questions = questions;
+      employee.feedbackGiven = true;
       resolve(true);
     }, 100);
   });
 };
 
-export const getFeedback = async mode => {
+export const getReceivedFeedback = async () => {
   return new Promise(resolve => {
     setTimeout(() => {
-      if (mode === "received") {
-        resolve(mockReceivedFeedback);
-      } else {
-        const employeeFeedback = mockEmployeeList.filter(employee => {
-          return feedbackGiven[employee.id];
-        });
-        resolve(employeeFeedback);
-      }
+      resolve(mockReceivedFeedback);
+    }, 100);
+  });
+};
+
+export const getGivenFeedback = async mode => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const employeeFeedback = mockEmployeeList.filter(employee => {
+        return employee.feedbackGiven;
+      });
+      resolve(employeeFeedback);
     }, 100);
   });
 };

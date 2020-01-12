@@ -20,33 +20,28 @@ const mockFeedbackQuestions = [
   },
   {
     questionId: 2,
-    title: "How well did did you behave?",
+    title: "Any extra feedback on their display of courage?",
     type: "text"
   },
   {
     questionId: 3,
-    title: "Another question with options?",
+    title: "Are they humble?",
     type: "radio",
     options: [
       {
-        text: "Bad"
+        text: "Not really"
       },
       {
-        text: "Good"
+        text: "Humble most of the time"
       },
       {
-        text: "Great"
+        text: "Embodies this core value"
       }
     ]
   },
   {
     questionId: 4,
-    title: "Some question with text?",
-    type: "text"
-  },
-  {
-    questionId: 5,
-    title: "Did they show leadership qualities?",
+    title: "What is your overall view of this person?",
     type: "text"
   }
 ];
