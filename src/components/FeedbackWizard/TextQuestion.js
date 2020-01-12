@@ -9,7 +9,7 @@ const QuestionCard = props => {
           value={selectedAnswer}
           onChange={ev => recordAnswer(ev.target.value)}
           className="form-control"
-          rows="6"
+          rows="13"
         ></textarea>
       </div>
     </div>

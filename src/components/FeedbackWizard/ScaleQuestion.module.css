@@ -1,0 +1,24 @@
+.blocks {
+  display: flex;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.block {
+  height: 20px;
+  background-color: #f2f3f4;
+  flex-grow: 1;
+  margin: 5px;
+  height: 74px;
+  cursor: pointer;
+}
+
+.bad {
+  background-color: #de521d;
+}
+.medium {
+  background-color: #ff8c21;
+}
+.good {
+  background-color: #2bbf6a;
+}

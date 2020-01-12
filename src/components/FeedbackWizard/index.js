@@ -5,7 +5,13 @@ import TextQuestion from "./TextQuestion";
 import styles from "./WizardContainer.module.css";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import WizardProgress from "./WizardProgress";
+import ScaleQuestion from "./ScaleQuestion";
 
+const getQuestionCard = type => {
+  if (type === "radio") return RadioQuestion;
+  if (type === "scale") return ScaleQuestion;
+  return TextQuestion;
+};
 const WizardContainer = props => {
   const {
     params: { employeeId }
@@ -54,7 +60,7 @@ const WizardContainer = props => {
     history.push("/confirmation");
   };
 
-  const QuestionCard = type === "radio" ? RadioQuestion : TextQuestion;
+  const QuestionCard = getQuestionCard(type);
   return (
     <div>
       {questions && (

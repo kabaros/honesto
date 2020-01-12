@@ -1,9 +1,21 @@
 import React from "react";
 import styles from "./Answers.module.css";
 
+const getStyle = (type, answer) => {
+  if (type === "scale") {
+    return answer >= 7 ? "good" : answer >= 4 ? "medium" : "bad";
+  } else {
+    return answer === 2 ? "good" : answer === 1 ? "medium" : "bad";
+  }
+};
 const AnswerType = props => {
-  const { answer = -1, scaleLength = 3 } = props;
-  const style = answer === 2 ? "good" : answer === 1 ? "medium" : "bad";
+  const {
+    answer = -1,
+    question: { type }
+  } = props;
+  const scaleLength = type == "scale" ? 10 : 3;
+
+  const style = getStyle(type, answer);
 
   const blocks = [...Array(scaleLength).keys()];
 

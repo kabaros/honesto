@@ -5,10 +5,18 @@ const employees = [
     image: "/images/1.png",
     questions: [
       {
+        questionId: 0,
+        title: "How much do they embody our core value of ownership?",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a euismod dolor, non blandit nisl. Sed euismod enim in semper consectetur. Duis elementum venenatis finibus. Sed quis neque diam. Aliquam nec blandit mi, et cursus dolor. Duis pharetra purus nunc, in facilisis ex auctor id. ",
+        type: "scale",
+        answer: 7
+      },
+      {
         questionId: 1,
         title: "How well did I display Courage?",
         type: "radio",
-        answer: 2,
+        answer: 1,
         options: [
           {
             text:
@@ -43,6 +51,14 @@ const employees = [
     image: "/images/2.jpg",
     questions: [
       {
+        questionId: 0,
+        title: "How much do they embody our core value of ownership?",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a euismod dolor, non blandit nisl. Sed euismod enim in semper consectetur. Duis elementum venenatis finibus. Sed quis neque diam. Aliquam nec blandit mi, et cursus dolor. Duis pharetra purus nunc, in facilisis ex auctor id. ",
+        type: "scale",
+        answer: 3
+      },
+      {
         questionId: 1,
         title: "How well did I display Courage?",
         type: "radio",
@@ -66,23 +82,6 @@ const employees = [
         questionId: 2,
         title: "How well did did you behave?",
         type: "text"
-      },
-      {
-        questionId: 3,
-        title: "Do I display ownership?",
-        type: "radio",
-        answer: 1,
-        options: [
-          {
-            text: "Bad"
-          },
-          {
-            text: "Good"
-          },
-          {
-            text: "Great"
-          }
-        ]
       },
       {
         questionId: 4,

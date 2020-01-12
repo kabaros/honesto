@@ -25,6 +25,13 @@ const mockFeedbackQuestions = [
   },
   {
     questionId: 3,
+    title: "How much do they embody our core value of ownership?",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a euismod dolor, non blandit nisl. Sed euismod enim in semper consectetur. Duis elementum venenatis finibus. Sed quis neque diam. Aliquam nec blandit mi, et cursus dolor. Duis pharetra purus nunc, in facilisis ex auctor id. ",
+    type: "scale"
+  },
+  {
+    questionId: 4,
     title: "Are they humble?",
     type: "radio",
     options: [
@@ -40,7 +47,7 @@ const mockFeedbackQuestions = [
     ]
   },
   {
-    questionId: 4,
+    questionId: 5,
     title: "What is your overall view of this person?",
     type: "text"
   }

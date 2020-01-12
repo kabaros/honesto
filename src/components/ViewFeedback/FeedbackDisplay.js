@@ -3,6 +3,11 @@ import styles from "../EmployeeList.module.css";
 import RadioAnswer from "./RadioAnswer";
 import TextAnswer from "./TextAnswer";
 
+const getAnswerComponent = type => {
+  if (type === "radio") return RadioAnswer;
+  if (type === "scale") return RadioAnswer;
+  return TextAnswer;
+};
 const FeedbackDisplay = props => {
   const { feedback = {} } = props;
   const { questions = [], name } = feedback;
@@ -21,12 +26,11 @@ const FeedbackDisplay = props => {
           <h2>{name}</h2>
         </li>
         {questions.map((question, index) => {
-          const AnswerComponent =
-            question.type === "radio" ? RadioAnswer : TextAnswer;
+          const AnswerComponent = getAnswerComponent(question.type);
           return (
             <li key={index} className={`list-group-item`}>
               {question.title}
-              <AnswerComponent answer={question.answer} />
+              <AnswerComponent question={question} answer={question.answer} />
             </li>
           );
         })}
