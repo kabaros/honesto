@@ -1,8 +1,8 @@
 const employees = [
   {
     id: 1,
-    name: "Chris Johnson",
-    image: "/images/1.png",
+    name: "Nedo Haider",
+    image: "/images/3.png",
     questions: [
       {
         questionId: 0,
@@ -47,8 +47,8 @@ const employees = [
   },
   {
     id: 2,
-    name: "Nico Perez",
-    image: "/images/2.jpg",
+    name: "Mo Na3im",
+    image: "/images/1.png",
     questions: [
       {
         questionId: 0,

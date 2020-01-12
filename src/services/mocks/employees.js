@@ -1,28 +1,28 @@
 const employees = [
   {
     id: 1,
-    name: "Chris Johnson",
+    name: "Mo Na3im",
     image: "/images/1.png"
   },
   {
     id: 2,
-    name: "Nico Perez",
-    image: "/images/2.jpg"
+    name: "Abol Kog",
+    image: "/images/2.png"
   },
 
   {
     id: 3,
-    name: "Nathaniel Moon",
-    image: "/images/3.jpg"
+    name: "Nedo Haider",
+    image: "/images/3.png"
   },
   {
     id: 4,
-    name: "Denis Denison",
-    image: "/images/4.jpg"
+    name: "Hussam Ginn",
+    image: "/images/4.png"
   },
   {
     id: 5,
-    name: "Paul Carter",
+    name: "Ka Baros",
     image: "/images/5.png"
   }
 ];

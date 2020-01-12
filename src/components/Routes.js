@@ -34,9 +34,6 @@ function App() {
               </Switch>
             </div>
           </div>
-          <div className="alert alert-success mt-5 text-center" role="alert">
-            Time spent so far: 14.5h
-          </div>
         </div>
       </div>
     </Router>
